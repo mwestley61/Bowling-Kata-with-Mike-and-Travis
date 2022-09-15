@@ -32,7 +32,7 @@ namespace BowlingKata
       Assert.Equal(8, game.score());
     }
 
-    [Fact (Skip = "just for now")]
+    [Fact]
     void can_score_spare()
     {
       var game = new Game();
