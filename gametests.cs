@@ -4,7 +4,6 @@ namespace BowlingKata
 {
   public class GameTests
   {
-    // enter `dotnet test` in Console window to run tests
     [Fact]
     void can_roll()
     {
