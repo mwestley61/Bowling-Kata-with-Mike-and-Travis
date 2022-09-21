@@ -30,10 +30,11 @@ namespace BowlingKata
 
       game.roll(5);
       game.roll(5);
+      game.roll(8);
       game.roll(3);
-      game.roll(3);
+      game.roll(7);
       
-      Assert.Equal(19, game.score());
+      Assert.Equal(32, game.score());
     }
         
     [Fact]
@@ -42,7 +43,6 @@ namespace BowlingKata
       var game = new Game();
 
       game.roll(10);
-      game.roll(0);
       game.roll(5);
       game.roll(3);
       
