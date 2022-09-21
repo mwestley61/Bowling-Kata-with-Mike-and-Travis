@@ -35,5 +35,18 @@ namespace BowlingKata
       
       Assert.Equal(19, game.score());
     }
+        
+    [Fact]
+    void can_score_strike()
+    {
+      var game = new Game();
+
+      game.roll(10);
+      game.roll(0);
+      game.roll(5);
+      game.roll(3);
+      
+      Assert.Equal(26, game.score());
+    }
   }
 }
