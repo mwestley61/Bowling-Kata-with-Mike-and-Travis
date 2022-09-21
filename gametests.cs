@@ -5,14 +5,6 @@ namespace BowlingKata
   public class GameTests
   {
     [Fact]
-    void can_roll()
-    {
-      var game = new Game();
-      
-      game.roll(0);
-    }
-
-    [Fact]
     void can_get_scoreAfterOneRoll(){
       var game = new Game();
 
