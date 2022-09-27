@@ -11,6 +11,9 @@ A strike is when the player knocks down all 10 pins on his first roll. The frame
 
 In the tenth frame a player who rolls a spare or strike is allowed to roll the extra balls to complete the frame. However no more than three balls can be rolled in tenth frame.
 
+Here is a handy app to use in verifying the scoring functionality of your code. 
+https://www.bowlinggenius.com/
+
 **Requirements**
 
 Write a class `Game` that has two methods
