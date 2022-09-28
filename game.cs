@@ -20,17 +20,11 @@ namespace BowlingKata
       { 
         if (rolledAStrike(i))
         {
-          _runningScore += _rolls[i];
-          _runningScore += _rolls[i+1];
-          _runningScore += _rolls[i+2];
-          _max_rolls = _max_rolls - 1; 
+          scoreAStrike(i);
         }
         else if (rolledASpare(i)) 
         {
-          _runningScore += _rolls[i];
-          i ++;
-          _runningScore += _rolls[i];
-          _runningScore += _rolls[i+1];
+          i = scoreASpare(i);
         } 
         else 
         {
@@ -63,5 +57,23 @@ namespace BowlingKata
         return false;
       }
     }
+
+    private int scoreASpare(int i) 
+    {
+      _runningScore += _rolls[i];
+      i ++;
+      _runningScore += _rolls[i];
+      _runningScore += _rolls[i+1];
+      return i;
+    }
+
+    private void scoreAStrike(int i) 
+    {
+      _runningScore += _rolls[i];
+      _runningScore += _rolls[i+1];
+      _runningScore += _rolls[i+2];
+      _max_rolls = _max_rolls - 1; 
+    }
+    
   }
 }
