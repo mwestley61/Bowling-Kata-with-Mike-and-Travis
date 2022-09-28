@@ -16,21 +16,14 @@ namespace BowlingKata
 
     public int score()
     {
-      Console.WriteLine("==================");
       for (int i = 0; i < _max_rolls; i++) 
       { 
-        Console.WriteLine("Max rolls = " + _max_rolls);
         if (rolledAStrike(i))
         {
-          Console.WriteLine("Strike begin at i=" + i);
           _runningScore += _rolls[i];
-          Console.WriteLine(_runningScore);
           _runningScore += _rolls[i+1];
-          Console.WriteLine(_runningScore);
           _runningScore += _rolls[i+2];
-          Console.WriteLine(_runningScore);
           _max_rolls = _max_rolls - 1; 
-          Console.WriteLine("Strike end");
         }
         else if (rolledASpare(i)) 
         {
@@ -43,7 +36,6 @@ namespace BowlingKata
         {
           _runningScore += _rolls[i];  
         }
-        Console.WriteLine(_runningScore);
       }
       return _runningScore;
     }
