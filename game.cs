@@ -11,6 +11,15 @@ namespace BowlingKata
     
     public void roll(int pins)
     {
+      if (pins > 10) {
+        throw new Exception();
+      }
+      
+      if(firstRollInFrame() + pins > 10)
+      {
+        throw new Exception();
+      }
+      
       _rolls[_roll++] = pins;
     }
 
@@ -72,8 +81,26 @@ namespace BowlingKata
       _runningScore += _rolls[i];
       _runningScore += _rolls[i+1];
       _runningScore += _rolls[i+2];
-      _max_rolls = _max_rolls - 1; 
+      _max_rolls--; 
     }
-    
+
+    private int firstRollInFrame(){
+      int firstRoll = 0;
+
+      // Loops through each frame
+      for (int i = 0; i < _roll; i++){
+        if (rolledAStrike(i))
+          firstRoll = 0;
+        else{
+          if (i+1 == _roll)
+            firstRoll = _rolls[_roll-1];
+          else
+            firstRoll = 0;
+          i++; // When not strike, move to next frame
+        }        
+      }
+
+      return firstRoll;
+    }
   }
 }

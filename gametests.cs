@@ -1,4 +1,5 @@
 using Xunit;
+using System;
 using System.Collections.Generic;
 
 namespace BowlingKata
@@ -94,5 +95,51 @@ namespace BowlingKata
 
       Assert.Equal(60, score);
     }
+  
+    [Fact]
+    void scores_perfect_game()
+    {
+      var game = new Game();
+      List<int> rolls = new List<int> {10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10};
+
+      foreach(int pins in rolls)
+      {
+        game.roll(pins);
+      }
+      var score = game.score();
+
+      Assert.Equal(300, score);
+    }
+
+    [Fact]
+    void roll_more_than_10_throws_exception(){
+      var game = new Game();
+      
+      Assert.Throws<Exception>(() => game.roll(11));
+    }
+    
+    [Fact]
+    void twoRolls_more_than_10_throws_exception(){
+      var game = new Game();
+
+      game.roll(7);
+      
+      Assert.Throws<Exception>(() => game.roll(5));
+    }
+    
+    [Fact]
+    void test_2_twoRolls_more_than_10_throws_exception(){
+      var game = new Game();
+
+      game.roll(7);
+      game.roll(3);
+      game.roll(10);
+      game.roll(10);
+      game.roll(7);
+
+      
+      Assert.Throws<Exception>(() => game.roll(5));
+    }
+
   }
 }
